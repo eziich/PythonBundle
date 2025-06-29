@@ -1,0 +1,18 @@
+# Build artifacts
+build/
+dist/
+*.spec
+*.toc
+*.pyz
+*.pkg
+*.exe
+
+# Virtual environments
+.venv/
+env/
+venv/
+
+# Python cache
+__pycache__/
+*.pyc
+*.pyo
