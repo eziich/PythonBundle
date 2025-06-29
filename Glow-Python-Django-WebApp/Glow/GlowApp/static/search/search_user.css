@@ -1,0 +1,138 @@
+@import url('https://fonts.googleapis.com/css?family=Poppins:400,500,600,700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: linear-gradient(-135deg, #c850c0, #4158d0);
+    padding: 10px 20px;
+    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.1);
+    position: relative;
+    height: 100px;
+}
+
+#logo {
+    width: 200px;
+    height: 60px;
+}
+
+
+.search-bar{
+    margin-left: 280px;
+}
+
+.search-bar input[type="text"] {
+    padding: 15px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    outline: none;
+    width: 300px;
+}
+
+.search-bar button {
+    padding: 15px 15px;
+    border: none;
+    border-radius: 6px;
+    background-color: #4158d0;
+    color: white;
+    cursor: pointer;
+}
+
+.search-bar button:hover{
+    background-color: #4169d0;
+}
+
+
+.links a {
+    color: white;
+    text-decoration: none;
+    padding-right: 10px;
+    padding-left: 10px;
+    font-size: 16px;
+    position: relative;
+    transition: transform 0.3s ease-in-out;
+}
+
+.links a::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    background-color: white;
+    bottom: -5px;
+    left: 0;
+    transform: scaleX(0);
+    transition: transform 0.3s ease-in-out;
+}
+
+.links a:hover {
+    transform: scale(1.2);
+}
+
+.links a:hover::after {
+    transform: scaleX(0.9);
+}
+
+.searchResults{
+    text-align: center;
+    margin-top:30px;
+}
+
+.profilePhoto{
+    margin-top:30px;
+    width: 150px;
+    height: 150px;
+    border: 2px;
+    border-style: solid;
+    border-color: black;
+}
+
+.searchLink{
+    text-decoration:none;
+    font-size:20px;
+}
+
+
+@media (max-width: 1185px) {
+    #logo {
+        margin-left: 0;
+        margin-bottom:5px;
+    }
+
+    .navbar {
+        flex-direction: column;
+        align-items: center;
+        height: auto;
+    }
+
+    .links {
+        margin-right: 10px;
+        margin-left: 10px;
+    }
+
+}
+
+@media (max-width: 768px) {
+    .mediaItem {
+        width: calc(100% - 20px); /* Ensures full width minus margin */
+        margin-bottom: 10px; /* Adds space between stacked items */
+        text-align: center;
+    }
+}
+
+@media (max-width: 576px) {
+    .mediaItem {
+        width: calc(100% - 10px); /* Same behavior for very small screens */
+        text-align: center;
+    }
+}
+}

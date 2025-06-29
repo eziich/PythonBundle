@@ -1,0 +1,324 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: linear-gradient(-135deg, #c850c0, #4158d0);
+    padding: 10px 20px;
+    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.1);
+    position: relative;
+    height: 100px;
+    flex-wrap:wrap;
+}
+
+#logo {
+    width: 200px;
+    height: 60px;
+}
+
+
+.search-bar{
+    align-items:center;
+    justify-content:center;
+    flex:1;
+    margin: 10px 0;
+}
+
+.search-bar input[type="text"] {
+    padding: 15px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    outline: none;
+    width: 300px;
+}
+
+.search-bar button {
+    padding: 15px 15px;
+    border: none;
+    border-radius: 6px;
+    background-color: #4158d0;
+    color: white;
+    cursor: pointer;
+}
+
+.search-bar button:hover{
+    background-color: #4169d0;
+}
+
+
+.links a {
+    color: white;
+    text-decoration: none;
+    padding-right: 10px;
+    padding-left: 10px;
+    font-size: 16px;
+    position: relative;
+    transition: transform 0.3s ease-in-out;
+}
+
+.links a::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    background-color: white;
+    bottom: -5px;
+    left: 0;
+    transform: scaleX(0);
+    transition: transform 0.3s ease-in-out;
+}
+
+.links a:hover {
+    transform: scale(1.2);
+}
+
+.links a:hover::after {
+    transform: scaleX(0.9);
+}
+
+.userProfile {
+    text-align: center;
+    margin-top: 20px;
+    margin-bottom: 50px;
+}
+
+#profilePicture {
+    height: 310px;
+    width: 300px;
+}
+
+.bioProfile {
+    font-size: 20px;
+}
+
+.userProfile {
+    text-align: center;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.userLink {
+    color: black;
+    text-decoration: none;
+    padding-right: 10px;
+    padding-left: 10px;
+    font-size: 16px;
+    position: relative;
+    transition: transform 0.3s ease-in-out;
+}
+
+.userLink::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    background-color: black;
+    bottom: -5px;
+    left: 0;
+    transform: scaleX(0);
+    transition: transform 0.3s ease-in-out;
+}
+
+.userLink:hover {
+    transform: scale(1.2);
+}
+
+.userLink:hover::after {
+    transform: scaleX(0.9);
+}
+
+
+#profilePicture {
+    height: 310px;
+    width: 300px;
+    border: 3px solid black;
+}
+
+.titleContainer {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.title {
+    font-size: 20px;
+    color: black;
+}
+
+.wrapper {
+    padding: 1px;
+}
+
+.mediaContainer {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.mediaItem {
+    width: calc(33.33% - 10px);
+    margin-bottom: 20px;
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+    padding: 10px;
+    text-align: center;
+    overflow: hidden;
+    position: relative;
+    background: linear-gradient(-135deg, #c850c0, #4158d0);
+    color: white;
+    object-fit: cover;
+    border-radius: 15px;
+}
+
+.mediaFile {
+    max-width: 100%;
+    height: 350px;
+    display: block;
+    margin: 0 auto;
+}
+
+.mediaItem h3 {
+    margin: 5px 0;
+}
+
+.mediaItem p {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    color: white;
+}
+
+.mediaFile:hover {
+    transform: scale(1.02);
+    transition: transform 0.8s ease-in-out;
+}
+
+.viewUsers {
+    text-decoration: none;
+    color: white;
+}
+
+#likeEmoji, #commentEmoji {
+    height: 23px;
+    width: 23px;
+}
+
+.likeButton, .commentButton {
+    width: 150px;
+    display: inline-block;
+    padding: 10px 15px;
+    font-size: 15px;
+    cursor: pointer;
+    text-align: center;
+    color: #fff;
+    border: none;
+    border-radius: 15px;
+    box-shadow: 0 9px #999;
+}
+
+.likeButton {
+    background-color: #04AA6D;
+}
+
+.likeButton:hover {
+    background-color: #3e8e41;
+}
+
+.likeButton:active {
+    background-color: #3e8e41;
+    box-shadow: 0 5px #666;
+    transform: translateY(4px);
+}
+
+
+
+.deleteMediaButton {
+    width: 150px !important;
+    display: flex !important;
+    padding: 10px 10px !important;
+    font-size: 15px !important;
+    cursor: pointer !important;
+    text-align: center !important;
+    text-decoration: none !important;
+    outline: none !important;
+    color: white !important;
+    background-color: #cf0c13 !important;
+    border: none !important;
+    border-radius: 15px !important;
+    box-shadow: 0 9px #999 !important;
+    margin-right: 10px !important;
+    justify-content: center;
+}
+.updateMediaLink {
+    width: 150px !important;
+    display: flex !important;
+    padding: 10px 10px !important;
+    font-size: 15px !important;
+    cursor: pointer !important;
+    text-align: center !important;
+    text-decoration: none !important;
+    outline: none !important;
+    color: white !important;
+    background-color: blue !important;
+    border: none !important;
+    border-radius: 15px !important;
+    box-shadow: 0 9px #999 !important;
+    margin-right: 10px !important;
+    justify-content: center;
+}
+
+.deleteMediaButton, .updateMediaLink {
+    margin: 10px auto !important;
+}
+
+.updateMediaLink:hover {
+    background-color: #1210a1 !important;
+}
+
+.deleteMediaButton:hover {
+    background-color: #a11010 !important;
+}
+
+@media (max-width: 1185px) {
+    #logo {
+        margin-left: 0;
+        margin-bottom:5px;
+    }
+
+    .navbar {
+        flex-direction: column;
+        align-items: center;
+        height: auto;
+    }
+
+    .links {
+        margin-right: 10px;
+        margin-left: 10px;
+    }
+
+}
+
+@media (max-width: 768px) {
+    .mediaItem {
+        width: calc(100% - 20px); /* Ensures full width minus margin */
+        margin-bottom: 10px; /* Adds space between stacked items */
+        text-align: center;
+    }
+}
+
+@media (max-width: 576px) {
+    .mediaItem {
+        width: calc(100% - 10px); /* Same behavior for very small screens */
+        text-align: center;
+    }
+}
+}
+
+
+

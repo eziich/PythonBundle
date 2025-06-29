@@ -1,0 +1,339 @@
+@import url('https://fonts.googleapis.com/css?family=Poppins:400,500,600,700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+html, body {
+    display: grid;
+    height: 100%;
+    width: 100%;
+    place-items: center;
+    background: linear-gradient(-135deg, #c850c0, #4158d0);
+}
+
+.logo-container {
+    width: 100%;
+    background: linear-gradient(-135deg, #c850c0, #4158d0);
+    text-align: center;
+    padding: 30px 0;
+    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.1);
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 999;
+    margin-bottom: 100px;
+}
+
+.logo-container img {
+    max-width: 200px;
+}
+
+#logo {
+    width: 180px;
+    height: auto;
+}
+
+.mainVideo {
+    margin-top: 50px;
+    width: 100%;
+    border-radius: 3%;
+    overflow: hidden;
+}
+
+.mainVideo video {
+    width: 100%;
+    margin-top: 70px;
+}
+
+.mainContent {
+    margin-top: 200px;
+    text-align: center;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.mainContentInline {
+    display: inline-block;
+    margin-right: 30px;
+    padding-right:30px;
+}
+
+.mainContentInline:hover {
+    transform: scale(1.2);
+    transition: transform 0.8s ease-in-out;
+}
+
+.content {
+    color: white;
+    margin-top: 15px;
+}
+
+
+#photoIcon,
+#photoPopular,
+#photoLike,
+#photoLogin {
+    max-width: 50px;
+    max-height: 50px;
+}
+
+#photoLogo {
+    max-width: 100px;
+    max-height: 50px;
+    min-width:100px;
+    min-height:50px;
+}
+
+#photoIcon {
+    max-width: 50px;
+    max-height: 50px;
+}
+
+#photoPopular {
+    max-width: 50px;
+    max-height: 50px;
+}
+
+#photoLike {
+    max-width: 50px;
+    max-height: 50px;
+}
+
+#photoLogin {
+    max-width: 50px;
+    max-height: 50px;
+}
+
+#bigPhoto {
+    width: 100%;
+    height: auto;
+}
+
+.mainLinks {
+    width: 70%;
+    text-align: center;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 100px;
+}
+
+.boxLink {
+    display: inline-block;
+    margin: 10px;
+    color: white;
+    padding: 20px;
+    border-radius: 3px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    width: 100%;
+    max-width: 300px;
+}
+
+.boxLink:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.boxLink a {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #4158d0;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+
+.footer {
+    text-align: center;
+    margin-top: 50px;
+}
+
+.signature {
+    width: auto;
+    height: 100px;
+}
+
+
+
+@media (min-width: 1274px) and (max-width: 1920px) {
+
+    .mainContent {
+        display: flex !important;
+        flex-direction: row !important;
+        align-items: center;
+    }
+
+    .mainContentInline {
+    margin-right: 30px;
+    padding-right:30px;
+    }
+
+    #logo {
+        width: 150px;
+    }
+
+    #photoLogo {
+    max-width: 100px;
+    max-height: 50px;
+    min-width:100px;
+    min-height:50px;
+}
+
+    #photoIcon {
+        width: 40px;
+        height: 40px;
+    }
+
+    #photoPopular {
+        max-width: 40px;
+        max-height: 40px;
+    }
+
+    #photoLike {
+        max-width: 40px;
+        max-height: 40px;
+    }
+
+    #photoLogin {
+        max-width: 40px;
+        max-height: 40px;
+    }
+
+    #bigPhoto {
+        max-height: 150px;
+    }
+
+
+    .boxLink {
+        padding: 15px;
+        max-width: 100%;
+    }
+
+    .content {
+        font-size: 20px;
+    }
+}
+
+
+@media (min-width: 480px) and (max-width: 1273px) {
+
+    .mainContent {
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center;
+        justify-content:center;
+    }
+
+    .mainContentInline {
+    margin-right: 20px;
+    }
+
+    #logo {
+        width: 150px;
+    }
+
+    #photoLogo {
+    max-width: 100px;
+    max-height: 50px;
+    min-width:100px;
+    min-height:50px;
+}
+
+    #photoIcon {
+        max-width: 40px;
+        max-height: 40px;
+    }
+
+    #photoPopular {
+        max-width: 40px;
+        max-height: 40px;
+    }
+
+    #photoLike {
+        max-width: 40px;
+        max-height: 40px;
+    }
+
+    #photoLogin {
+        max-width: 40px;
+        max-height: 40px;
+    }
+
+    #bigPhoto {
+        height: 150px;
+    }
+
+    .boxLink {
+        padding: 15px;
+        max-width: 90%;
+    }
+
+    .content {
+       font-size:14px;
+    }
+}
+
+@media (max-width: 480px) {
+    .mainContent {
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center;
+    }
+
+    .mainContentInline {
+        margin-right: 20px;
+    }
+
+    #logo {
+        width: 120px;
+    }
+
+    #photoLogo {
+    max-width: 100px;
+    max-height: 50px;
+    min-width:100px;
+    min-height:50px;
+}
+
+    #photoIcon {
+        max-width: 40px;
+        max-height: 40px;
+    }
+
+    #photoPopular {
+        max-width: 40px;
+        max-height: 40px;
+    }
+
+    #photoLike {
+        max-width: 40px;
+        max-height: 40px;
+    }
+
+    #photoLogin {
+        max-width: 40px;
+        max-height: 40px;
+    }
+
+    #bigPhoto {
+        height: 100px;
+    }
+
+    .boxLink {
+        padding: 10px;
+        max-width: 100%;
+    }
+
+    .content {
+        font-size: 12px;
+    }
+
+}

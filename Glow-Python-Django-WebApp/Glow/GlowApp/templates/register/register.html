@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="utf-8">
+    <title>Registration</title>
+    <link rel="stylesheet" href="{% static 'register/register.css' %}">
+    <link rel="icon" href="{% static 'favicon/favicon.png' %}" type="image/x-icon">
+</head>
+<body>
+<div class="logo-container">
+    <img id="logo" src="{% static 'login/logo.png' %}">
+</div>
+<div class="wrapper">
+    <div class="title">
+        Registration
+    </div>
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        <div class="field">
+            <input type="text" name="username" required>
+            <label>Username:</label>
+        </div>
+        <div class="field">
+            <input type="text" name="first_name" required>
+            <label>First name:</label>
+        </div>
+        <div class="field">
+            <input type="text" name="last_name" required>
+            <label>Last name:</label>
+        </div>
+        <div class="field">
+            <input type="email" name="email" required>
+            <label>Email address:</label>
+
+        </div>
+        <div class="field">
+            <input type="password" name="password1" required>
+            <label>Password:</label>
+        </div>
+        <div class="field">
+            <input type="password" name="password2" required>
+            <label>Confirm password:</label>
+        </div>
+        <div class="profile-picture">
+            <label for="id_profile_picture">Profile picture:</label>
+            <input type="file" name="profile_picture" id="id_profile_picture" accept="image/*" required>
+        </div>
+        <br>
+        <div class="field">
+            <input type="submit" value="Register">
+        </div>
+        <div class="signup-link">
+            Already have an account? <a href="{% url 'login' %}">Log in</a>
+        </div>
+        <br>
+            {% if form.username.errors %}
+                    {% for error in form.username.errors %}
+                        <p class="error">Username is already taken!</p>
+                    {% endfor %}
+            {% endif %}
+
+            {% if form.email.errors %}
+                    {% for error in form.email.errors %}
+                        <p class="error">Email is already in use!</p>
+                    {% endfor %}
+            {% endif %}
+
+            {% if form.password2.errors %}
+                        <p class="error">There was an error with the password. Passwords must match and be at least 8 characters long!</p>
+            {% endif %}
+
+
+    </form>
+
+</div>
+</body>
+</html>

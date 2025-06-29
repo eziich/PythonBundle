@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="utf-8">
+    <title>Upload</title>
+    <link rel="stylesheet" href="{% static 'upload/upload.css' %}">
+    <link rel="icon" href="{% static 'favicon/favicon.png' %}" type="image/x-icon">
+</head>
+<body>
+<div class="navbar">
+    <img id="logo" src="{% static 'login/logo.png' %}">
+    <div class="links">
+        <a href="{%url 'dashboard' %}">Home</a>
+        <a href="{% url 'follow_view_display' %}">Following</a>
+        <a href="{%url 'profile' %}">My Profile</a>
+        <a href="{% url 'logout' %}">Logout</a>
+    </div>
+</div>
+
+<div class="wrapper">
+    <div class="title">Upload</div>
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        <div class="field">
+            <input type="text" name="media_title" placeholder="Media title" required>
+        </div>
+        <div class="field">
+            <textarea name="media_description" placeholder="Media description" required></textarea>
+        </div>
+        <div class="field">
+            <label for="media_type">Media type:</label>
+            <select id="media_type" name="media_type" required>
+                <option value="picture">Picture</option>
+                <option value="video">Video</option>
+            </select>
+        </div>
+        <div class="field">
+            <label for="media_file">Choose file:</label>
+            <input type="file" id="media_file" name="media_file" required>
+        </div>
+        <div class="field">
+            <input type="submit" value="Upload">
+        </div>
+    </form>
+</div>
+
+</body>
+</html>

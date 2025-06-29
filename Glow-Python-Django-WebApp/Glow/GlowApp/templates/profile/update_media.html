@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load static %}
+<head>
+    <meta charset="UTF-8">
+    <title>Update Post</title>
+    <link rel="stylesheet" href="{% static 'profile/update_media.css' %}">
+    <link rel="icon" href="{% static 'favicon/favicon.png' %}" type="image/x-icon">
+    <script src="{% static 'profile/profile.js' %}" defer></script>
+</head>
+<body>
+<div class="logo-container">
+    <img id="logo" src="{% static 'login/logo.png' %}" alt="Your Logo">
+</div>
+
+<div class="postPhotoContainer">
+    <img class="postPhoto" src="{{ media.media_file.url }}">
+    <p class="postTitle">{{ media.media_title }} </p>
+</div>
+
+
+<div class="updateContainer">
+        <h2>Update post description</h2>
+        <form method="POST">
+            {% csrf_token %}
+            <label for="new_description">Update description:</label><br>
+            <textarea id="new_description" name="new_description" rows="4" cols="50">{{ media.media_description }}</textarea><br>
+            <br>
+            <button type="submit">Update description</button>
+        </form>
+    </div>
+
+
+
+</body>
+</html>

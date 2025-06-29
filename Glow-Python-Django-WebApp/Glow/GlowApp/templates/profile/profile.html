@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load static %}
+<head>
+    <meta charset="UTF-8">
+    <title>My Profile</title>
+    <link rel="stylesheet" href="{% static 'profile/profile.css' %}">
+    <link rel="icon" href="{% static 'favicon/favicon.png' %}" type="image/x-icon">
+    <script src="{% static 'profile/profile.js' %}" defer></script>
+</head>
+<body>
+<div class="navbar">
+    <img id="logo" src="{% static 'login/logo.png' %}">
+    <form method="GET" action="{% url 'search_user' %}">
+            {% csrf_token %}
+            <div class="search-bar">
+                <input type="text" name="search_query" placeholder="Search...">
+                <button type="submit">Search</button>
+            </div>
+        </form>
+
+
+    <div class="links">
+        <a href="{%url 'dashboard' %}">Home</a>
+        <a href="{% url 'follow_view_display' %}">Following</a>
+        <a href="{%url 'upload' %}">Upload</a>
+        <a href="{% url 'logout' %}">Logout</a>
+    </div>
+</div>
+
+ <div class="userProfile">
+     <img id="profilePicture" src="{{user_profile.profile_picture.url}}">
+     <h1>{{ user_profile.user.username }}</h1>
+     <p class="bioProfile" >{{ user_profile.profile_bio }}</p>
+     <br>
+     <a class="userLink" href="{% url 'update_profile' %}">Update profile information</a> |
+     <a class="userLink" href="{% url 'update_personal' %}">Update personal information</a>
+ </div>
+
+
+    <div class="titleContainer">
+        <div class="title">Posts:</div>
+    </div>
+
+<div class="wrapper">
+    <div class="mediaContainer">
+        {% for media in user_media %}
+        <div class="{% if media.media_type == 'picture' %} mediaItem {% elif media.media_type == 'video' %} mediaItemVideo {% endif %}">
+            <h3>{{ media.media_title }}</h3>
+
+            {% if media.media_type == 'picture' %}
+                <img class="mediaFile" src="{{ media.media_file.url }}" alt="{{ media.media_title }}">
+            {% elif media.media_type == 'video' %}
+                <video controls class="mediaFile">
+                    <source src="{{ media.media_file.url }}" type="video/mp4">
+                    Your browser does not support this format
+                </video>
+            {% endif %}
+            <br>
+            <h3 class="descriptionMedia">{{ media.media_description }}</h3>
+            <br>
+            <a class="viewUsers" href="{% url 'profile_likedusers' media_id=media.id %}"><img id="likeEmoji" src="{% static 'profile/like.png' %}">    Users who like this post:   {{ media.media_likes.count }}</a>
+            <br>
+            <br>
+            <a class="viewUsers" href="{% url 'profile_commentedusers' media_id=media.id %}"><img id="commentEmoji" src="{% static 'profile/comment.png' %}">   Comments:
+            </a>
+            <br>
+            <br>
+            <div style="display:flex; align-content:center;justify-content:center; flex-direction:column">
+            <a class="updateMediaLink" href="{% url 'update_media' media_id=media.id %}">Update post</a>
+
+            <form action="{% url 'delete_media' media_id=media.id %}" method="post">
+                {% csrf_token %}
+                <button type="submit" class="deleteMediaButton">Delete post</button>
+            </form>
+        </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+
+</body>
+</html>

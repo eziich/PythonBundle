@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="utf-8">
+    <title>Profile</title>
+    <link rel="stylesheet" href="{% static 'profile/profile_viewed.css' %}">
+    <link rel="icon" href="{% static 'favicon/favicon.png' %}" type="image/x-icon">
+    <script src="{% static 'profile/profile_viewed.js' %}"></script>
+</head>
+<body>
+<div class="navbar">
+    <img id="logo" src="{% static 'login/logo.png' %}">
+    <form method="GET" action="{% url 'search_user' %}">
+        {% csrf_token %}
+        <div class="search-bar">
+            <input type="text" name="search_query" placeholder="Search...">
+            <button type="submit">Search</button>
+        </div>
+    </form>
+
+    <div class="links">
+        <a href="{% url 'dashboard' %}">Home</a>
+        <a href="{% url 'upload' %}">Upload</a>
+        <a href="{% url 'follow_view_display' %}">Following</a>
+        <a href="{% url 'profile' %}">My Profile</a>
+        <a href="{% url 'logout' %}">Logout</a>
+    </div>
+</div>
+
+<div class="userProfile">
+    <img id="profilePicture" src="{{ user_profile.profile_picture.url }}">
+    <h1>{{ user_profile.user.username }}</h1>
+    <p>{{ user_profile.profile_bio }}</p>
+
+    <div class="followButtonContainer">
+        <form action="{% url 'follow_view' username=user.username %}" method="post">
+            {% csrf_token %}
+            <button class="followButton" type="submit">Follow user</button>
+        </form>
+    </div>
+    <br>
+</div>
+
+
+<div class="titleContainer">
+    <div class="title">Posts:</div>
+</div>
+
+<div class="wrapper">
+    <div class="mediaContainer">
+        {% for media in user_media %}
+        <div class="mediaItem {% if media.media_type == 'video' %} videoItem {% endif %}">
+
+
+            <h3>{{ media.media_title }}</h3>
+            {% if media.media_type == 'picture' %}
+                <img class="mediaFile" src="{{ media.media_file.url }}" alt="{{ media.media_title }}">
+            {% elif media.media_type == 'video' %}
+                <video controls class="mediaFile">
+                    <source src="{{ media.media_file.url }}" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+            {% endif %}
+            <p>{{ media.media_description }}</p>
+            <div class="interactionButtons">
+                <form action="{% url 'like_post' media.id %}" method="post">
+                    {% csrf_token %}
+                    <br>
+                    <button class="likeButton" type="submit">Like</button>
+                    <br>
+                    <br>
+                </form>
+                <form action="{% url 'comment_post' media.id %}" method="post">
+                    {% csrf_token %}
+                    <textarea class="commentField" placeholder="Comment..." name="comment_text"></textarea>
+                    <button class="commentButton" type="submit">Post comment</button>
+                </form>
+            </div>
+            <br>
+            <div class="mediaDetails">
+                <a class="viewUsers" href="{% url 'profile_likedusers' media_id=media.id %}">
+                    <img id="likeEmoji" src="{% static 'profile/like.png' %}"> Users who like this post: {{ media.media_likes.count }}
+                    <br>
+                </a>
+                <a class="viewUsers" href="{% url 'profile_commentedusers' media_id=media.id %}">
+                    <img id="commentEmoji" src="{% static 'profile/comment.png' %}"> All comments
+                </a>
+            </div>
+            <ul class="commentList">
+                {% for comment in media.comments %}
+                <li>{{ comment.comment_description }}</li>
+                {% endfor %}
+            </ul>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+
+</body>
+</html>

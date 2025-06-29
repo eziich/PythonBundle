@@ -1,0 +1,185 @@
+@import url('https://fonts.googleapis.com/css?family=Poppins:400,500,600,700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body{
+    background-color:white;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: linear-gradient(-135deg, #c850c0, #4158d0);
+    padding: 10px 20px;
+    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.1);
+    position: relative;
+    height: 100px;
+    flex-wrap:wrap;
+}
+
+#logo {
+    width: 200px;
+    height: 60px;
+}
+
+
+.search-bar{
+    align-items:center;
+    justify-content:center;
+    flex:1;
+    margin: 15px 0;
+}
+
+.search-bar input[type="text"] {
+    padding: 15px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    outline: none;
+    width: 300px;
+}
+
+.search-bar button {
+    padding: 15px 15px;
+    border: none;
+    border-radius: 6px;
+    background-color: #4158d0;
+    color: white;
+    cursor: pointer;
+}
+
+.search-bar button:hover{
+    background-color: #4169d0;
+}
+
+
+.links a {
+    color: red;
+    text-decoration: none;
+    padding-right: 10px;
+    padding-left: 10px;
+    font-size: 16px;
+    position: relative;
+    transition: transform 0.3s ease-in-out;
+}
+
+.links a::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    background-color: white;
+    bottom: -5px;
+    left: 0;
+    transform: scaleX(0);
+    transition: transform 0.3s ease-in-out;
+}
+
+.links a:hover {
+    transform: scale(1.2);
+}
+
+.links a:hover::after {
+    transform: scaleX(0.9);
+}
+
+.userDetails{
+    display: flex;
+    flex-direction:row;
+    justify-content: space-between;
+    align-items:center;
+}
+
+.userInfo{
+    display: flex;
+    flex-direction:row !important;
+    align-items:center;
+}
+
+
+.profilePicture{
+    width:100px;
+    height:100px;
+    border: 3px;
+    border-style: solid;
+    border-color: black;
+}
+
+.profileUsername {
+    margin-left: 10px;
+    font-size: 25px;
+    color:white;
+}
+
+.unfollowButton {
+    width: 150px !important;
+    display: flex !important;
+    padding: 10px 10px !important;
+    font-size: 15px !important;
+    cursor: pointer !important;
+    text-align: center !important;
+    text-decoration: none !important;
+    outline: none !important;
+    color: red !important;
+    background-color: #cf0c13 !important;
+    border: none !important;
+    border-radius: 15px !important;
+    box-shadow: 0 9px #999 !important;
+    margin-right: 10px !important;
+    max-width:100px;
+    max-height:60px;
+    font-size:10px;
+}
+
+
+.unfollowButton:hover {
+    background-color: #197a14 !important;
+}
+
+.unfollowButton:active {
+    background-color: #cf0c13 !important;
+    box-shadow: 0 5px #666 !important;
+    transform: translateY(4px) !important;
+}
+
+
+@media (max-width: 1185px) {
+    #logo {
+        margin-left: 0;
+        margin-bottom:5px;
+    }
+
+    .navbar {
+        flex-direction: column;
+        align-items: center;
+        height: auto;
+    }
+
+    .links {
+        margin-right: 10px;
+        margin-left: 10px;
+    }
+
+}
+
+@media (max-width: 768px) {
+    .mediaItem {
+        width: calc(100% - 20px);
+        margin-bottom: 10px;
+        text-align: center;
+    }
+}
+
+@media (max-width: 576px) {
+    .mediaItem {
+        width: calc(100% - 10px);
+        text-align: center;
+    }
+}
+}
+}

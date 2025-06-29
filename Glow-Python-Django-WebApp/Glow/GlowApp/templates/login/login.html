@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en" dir="ltr">
+   <head>
+      <meta charset="utf-8">
+      <title>Login</title>
+      <link rel="stylesheet" href="{% static 'login/login.css' %}">
+      <link rel="icon" href="{% static 'favicon/favicon.png' %}" type="image/x-icon">
+   </head>
+   <body>
+      <div class="logo-container">
+         <img id="logo" src="{% static 'login/logo.png' %}" alt="Your Logo">
+      </div>
+      <div class="wrapper">
+         <div class="title">
+            Login
+         </div>
+         <form method="post">
+            {% csrf_token %}
+            <div class="field">
+               <input type="text" name="username" required>
+               <label>Username</label>
+            </div>
+            <div class="field">
+               <input type="password" name="password" required>
+               <label>Password</label>
+            </div>
+            <br>
+            <div class="field">
+               <input type="submit" value="Login">
+            </div>
+            <div class="signup-link">
+               Don't have an account? <a href="{% url 'register' %}">Register</a>
+            </div>
+            <br>
+            {% if error_message %}
+               <p class="error-message">{{ error_message }}</p>
+            {% endif %}
+         </form>
+      </div>
+
+   </body>
+</html>

@@ -1,0 +1,208 @@
+@import url('https://fonts.googleapis.com/css?family=Poppins:400,500,600,700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: linear-gradient(-135deg, #c850c0, #4158d0);
+    padding: 10px 20px;
+    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.1);
+    position: relative;
+    height: 120px;
+}
+
+#logo {
+    width: 200px;
+    height: 60px;
+    margin-left: 45%;
+}
+
+.links {
+    margin-right: 20px;
+}
+
+.links a {
+    color: white;
+    text-decoration: none;
+    padding-left: 20px;
+}
+
+.wrapper {
+    width: 450px;
+    background: #fff;
+    border-radius: 15px;
+    box-shadow: 0px 15px 20px rgba(0,0,0,0.1);
+    margin: 50px auto;
+}
+
+.wrapper .title {
+    font-size: 30px;
+    font-weight: 500;
+    text-align: center;
+    line-height: 80px;
+    color: #fff;
+    user-select: none;
+    border-radius: 15px 15px 0 0;
+    background: linear-gradient(-135deg, #c850c0, #4158d0);
+    padding: 20px;
+}
+
+.wrapper form {
+    padding: 20px;
+}
+
+.wrapper form .field {
+    margin-top: 15px;
+    position: relative;
+}
+
+.wrapper form .field input,
+.wrapper form .field textarea,
+.wrapper form .field select {
+    width: 100%;
+    outline: none;
+    font-size: 14px;
+    padding: 10px;
+    border: 1px solid lightgrey;
+    border-radius: 20px;
+    transition: all 0.3s ease;
+    resize: none;
+}
+
+.wrapper form .field input:focus,
+.wrapper form .field textarea:focus,
+.wrapper form .field select:focus {
+    border-color: #4158d0;
+}
+
+.wrapper form .field label {
+    color: #999999;
+    font-weight: 400;
+    font-size: 14px;
+    margin-bottom: 5px;
+    display: block;
+}
+
+.wrapper form .field input[type="submit"] {
+    color: #fff;
+    border: none;
+    padding-left: 0;
+    margin-top: 20px;
+    font-size: 17px;
+    font-weight: 500;
+    cursor: pointer;
+    background: linear-gradient(-135deg, #c850c0, #4158d0);
+    transition: background-color 0.3s ease;
+}
+
+.wrapper form .field input[type="submit"]:hover {
+    background: linear-gradient(-135deg, #d462cc, #4f6cd1);
+}
+
+.message {
+    color: red;
+    font-size: 14px;
+}
+
+.navbar .links a {
+    color: white;
+    text-decoration: none;
+    padding-right: 10px;
+    padding-left: 10px;
+    font-size: 16px;
+    position: relative;
+    transition: transform 0.3s ease-in-out;
+}
+
+.navbar .links a::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    background-color: white;
+    bottom: -5px;
+    left: 0;
+    transform: scaleX(0);
+    transition: transform 0.3s ease-in-out;
+}
+
+.navbar .links a:hover {
+    transform: scale(1.2);
+}
+
+.navbar .links a:hover::after {
+    transform: scaleX(0.9);
+}
+
+@media (max-width: 1185px) {
+    #logo {
+        margin-left: 0;
+        margin-bottom:5px;
+    }
+
+    .navbar {
+        flex-direction: column;
+        align-items: center;
+        height: auto;
+    }
+
+    .links {
+        margin-right: 10px;
+        margin-left: 10px;
+    }
+
+    .wrapper {
+        width: 60%;
+        margin: 10px auto;
+        align-items: center;
+        justify-content: center;
+        margin-top:50px;
+    }
+
+    .wrapper .title {
+        font-size: 24px;
+        line-height: 60px;
+    }
+}
+
+
+@media (max-width: 1185px) {
+    #logo {
+        margin-left: 0;
+        margin-bottom:5px;
+    }
+
+    .navbar {
+        flex-direction: column;
+        align-items: center;
+        height: auto;
+    }
+
+    .links {
+        margin-right: 10px;
+        margin-left: 10px;
+    }
+
+
+@media (max-width: 768px) {
+    .mediaItem {
+        width: calc(100% - 20px); /* Ensures full width minus margin */
+        margin-bottom: 10px; /* Adds space between stacked items */
+        text-align: center;
+    }
+}
+
+@media (max-width: 576px) {
+    .mediaItem {
+        width: calc(100% - 10px); /* Same behavior for very small screens */
+        text-align: center;
+    }
+}
+}

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="utf-8">
+    <title>Likes</title>
+    <link rel="stylesheet" href="{% static 'profile/profile_likedusers.css' %}">
+    <link rel="icon" href="{% static 'favicon/favicon.png' %}" type="image/x-icon">
+</head>
+<body>
+<div class="navbar">
+    <img id="logo" src="{% static 'login/logo.png' %}">
+    <div class="links">
+        <a href="{%url 'dashboard' %}">Home</a>
+        <a href="#">Following</a>
+        <a href="{%url 'profile' %}">My Profile</a>
+        <a href="{% url 'logout' %}">Logout</a>
+    </div>
+</div>
+
+
+ <div class="title">
+     <h1>Users who liked the post "{{ media.media_title }}":</h1>
+     {% if media.media_type == 'video' %}
+        <video controls class="likedVideo">
+            <source src="{{ media.media_file.url }}" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+    {% else %}
+        <img class="likedPhoto" src="{{ media.media_file.url }}" alt="Liked Photo">
+    {% endif %}
+ </div>
+
+<div id="likedUsers">
+    <ul>
+        {% for user in liked_users %}
+            <li><img class="profilePictureLiked" src="{{ user.profile.profile_picture.url }}" alt="Profile Picture"></li>
+            <a href="{% url 'profile_viewed' username=user.username %}"><li class="profileUsernameLiked">{{ user.username }} </li></a>
+        {% endfor %}
+    </ul>
+</div>
+</body>
+</html>

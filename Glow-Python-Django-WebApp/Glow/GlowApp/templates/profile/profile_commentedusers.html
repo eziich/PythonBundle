@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="utf-8">
+    <title>Comments</title>
+    <link rel="stylesheet" href="{% static 'profile/profile_commentedusers.css' %}">
+    <link rel="icon" href="{% static 'favicon/favicon.png' %}" type="image/x-icon">
+</head>
+<body>
+<div class="navbar">
+    <img id="logo" src="{% static 'login/logo.png' %}">
+    <div class="links">
+        <a href="{% url 'dashboard' %}">Home</a>
+        <a href="{% url 'follow_view_display' %}">Following</a>
+        <a href="{% url 'profile' %}">My Profile</a>
+        <a href="{% url 'logout' %}">Logout</a>
+    </div>
+</div>
+
+<div class="title">
+    {% if media.media_type == 'video' %}
+        <video controls class="postVideo">
+            <source src="{{ media.media_file.url }}" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+    {% else %}
+        <img class="postPhoto" src="{{ media.media_file.url }}" alt="Post Photo">
+    {% endif %}
+    <h1>Comments for post {{ media.media_title }}: </h1>
+</div>
+
+<div id="commentedUsers">
+    <ul>
+        {% for comment in comments %}
+            <img class="profilePictureLiked" src="{{ comment.user.profile.profile_picture.url }}" alt="Profile Picture">
+            <a href="{% url 'profile_viewed' username=comment.user.username %}">
+                <li class="profileUsernameLiked">{{ comment.user.username }}</li>
+            </a>
+            <li class="commentText">"{{ comment.comment_description }}"</li>
+            <br>
+
+            <form method="post" action="{% url 'reply_to_comment' comment.id %}">
+                {% csrf_token %}
+                <textarea class="replyBox" name="reply_text" placeholder="Reply to comment"></textarea>
+                <br>
+                <button type="submit">Reply to comment</button>
+            </form>
+            <br>
+
+            {% for reply in comment.replies.all %}
+                <li>
+                    <img class="replyPhoto" src="{{ reply.user.profile.profile_picture.url }}">
+                    <p class="replyUsername">{{ reply.user.username }}</p>
+                    <p class="replyText">"{{ reply.reply_description }}"</p>
+                </li>
+            {% endfor %}
+        {% endfor %}
+    </ul>
+</div>
+
+</body>
+</html>

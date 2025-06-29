@@ -1,0 +1,185 @@
+@import url('https://fonts.googleapis.com/css?family=Poppins:400,500,600,700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body{
+    background: white;
+}
+
+.logo-container {
+    width: 100%;
+    background: linear-gradient(-135deg, #c850c0, #4158d0);
+    text-align: center;
+    padding: 30px 0;
+    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.1);
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 999;
+}
+
+
+#logo {
+    width: 170px;
+    height: 60px;
+}
+
+.userProfile{
+    text-align:center;
+    margin-top: 20px;
+    margin-bottom: 90px;
+
+}
+
+
+.links a {
+    color: white;
+    text-decoration: none;
+    padding-right: 10px;
+    padding-left: 10px;
+    font-size: 16px;
+    position: relative;
+    transition: transform 0.3s ease-in-out;
+}
+
+.links a::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    background-color: white;
+    bottom: -5px;
+    left: 0;
+    transform: scaleX(0);
+    transition: transform 0.3s ease-in-out;
+}
+
+.links a:hover {
+    transform: scale(1.2);
+}
+
+.links a:hover::after {
+    transform: scaleX(0.9);
+}
+
+
+.postPhotoContainer{
+    text-align:center;
+    margin-top: 200px;
+}
+
+.postPhoto{
+    width:300px;
+    height:300px;
+    border: 5px;
+    border-style: solid;
+    border-color:black;
+}
+
+.postTitle{
+    font-size:30px;
+}
+
+.updateContainer {
+    width: 35%;
+    text-align: center;
+    background: #fff;
+    border-radius: 15px;
+    box-shadow: 0px 15px 20px rgba(0,0,0,0.1);
+    margin-top: 30px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom:100px;
+}
+
+.updateContainer h2 {
+    font-size: 30px;
+    font-weight: 600;
+    text-align: center;
+    line-height: 90px;
+    color: #fff;
+    user-select: none;
+    border-radius: 15px 15px 0 0;
+    background: linear-gradient(-135deg, #c850c0, #4158d0);
+    padding: 15px;
+}
+
+.updateContainer form {
+    padding: 30px;
+}
+
+.updateContainer form label {
+    color: #999999;
+}
+
+.updateContainer form textarea {
+    height: 100px;
+    width: calc(100% - 40px);
+    outline: none;
+    font-size: 15px;
+    padding: 10px;
+    border: 1px solid lightgrey;
+    border-radius: 25px;
+    transition: all 0.3s ease;
+    margin-top: 20px;
+    resize: none;
+}
+
+.updateContainer form textarea:focus {
+    border-color: #4158d0;
+}
+
+.updateContainer form button[type="submit"] {
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    margin-top: 20px;
+    font-size: 20px;
+    font-weight: 500;
+    cursor: pointer;
+    background: linear-gradient(-135deg, #c850c0, #4158d0);
+    transition: all 0.3s ease;
+    border-radius: 25px;
+}
+
+.updateContainer form button[type="submit"]:hover {
+    background: linear-gradient(-135deg, #d462cc, #4f6cd1);
+}
+
+@media (max-width: 1185px) {
+    #logo {
+        margin-left: 0;
+        margin-bottom:5px;
+    }
+
+    .navbar {
+        flex-direction: column;
+        align-items: center;
+        height: auto;
+    }
+
+    .links {
+        margin-right: 10px;
+        margin-left: 10px;
+    }
+
+
+@media (max-width: 768px) {
+    .mediaItem {
+        width: 100%;
+        text-align: center;
+    }
+}
+
+@media (max-width: 576px) {
+    .mediaItem {
+        width: 100%;
+        text-align: center;
+    }
+}
+}

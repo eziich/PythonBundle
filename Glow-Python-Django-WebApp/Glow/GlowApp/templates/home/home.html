@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en" dir="ltr">
+<head>
+      <meta charset="utf-8">
+      <title>Glow</title>
+      <link rel="stylesheet" href="{% static 'home/home.css' %}">
+      <link rel="icon" href="{% static 'favicon/favicon.png' %}" type="image/x-icon">
+</head>
+<body>
+
+
+<div class="logo-container">
+         <img id="logo" src="{% static 'login/logo.png' %}" alt="Your Logo">
+</div>
+
+<div class="mainContent">
+    <div class="mainContentInline">
+        <img id="photoLogo" src="media/profile_pictures/glow.png">
+        <h2 class="content">Shine on the new social network</h2>
+    </div>
+    <br>
+    <div class="mainContentInline">
+        <img id="photoIcon" src="media/profile_pictures/photo.png">
+        <h2 class="content">Post photos and videos</h2>
+    </div>
+    <br>
+    <div class="mainContentInline">
+        <img id="photoPopular" src="media/profile_pictures/popular.png">
+        <h2 class="content">Follow famous people</h2>
+    </div>
+    <br>
+    <div class="mainContentInline">
+        <img id="photoLike" src="media/profile_pictures/like.png">
+        <h2 class="content">Like and comment on content</h2>
+    </div>
+    <br>
+    <div class="mainContentInline">
+        <img id="photoLogin" src="media/profile_pictures/login.png">
+        <h2 class="content">Register for free</h2>
+    </div>
+    <br>
+</div>
+
+<div class="mainVideo">
+    <video autoplay loop muted>
+        <source src="media/profile_pictures/video.mp4" type="video/mp4">
+        Your browser does not support video content
+    </video>
+</div>
+
+
+<div class="mainLinks">
+    <div class="boxLink">
+        <h2>Register for free</h2>
+        <br>
+        <li class="listLinks">Enter your username and email</li>
+        <br>
+        <li class="listLinks">Enter your first and last name</li>
+        <br>
+        <li class="listLinks">Upload your profile picture</li>
+        <br>
+        <a href="{% url 'register' %}">Register</a>
+    </div>
+
+    <div class="boxLink">
+        <h2>Log in to your profile</h2>
+        <br>
+        <li class="listLinks">Post photos and videos</li>
+        <br>
+        <li class="listLinks">Like and comment</li>
+        <br>
+        <li class="listLinks">Follow your favorite creators</li>
+        <br>
+        <a href="{% url 'login' %}">Login</a>
+    </div>
+</div>
+
+<div class="footer">
+    <img class="signature" src="media/profile_pictures/signature.png">
+</div>
+
+
+</body>
+</html>
